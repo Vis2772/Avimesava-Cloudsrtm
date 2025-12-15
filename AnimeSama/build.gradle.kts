@@ -1,33 +1,25 @@
-// use an integer for version numbers
-version = 4
-
-
-cloudstream {
-    // All of these properties are optional, you can safely remove them
-
-    description = "Anime-Sama est un site de référencement et de catalogage, créé par des passionnés de l’animation et du divertissement APAC."
-    authors = listOf("ycngmn")
-
-    /**
-    * Status int as the following:
-    * 0: Down
-    * 1: Ok
-    * 2: Slow
-    * 3: Beta only
-    * */
-    status = 1
-
-    tvTypes = listOf("Anime")
-
-    requiresResources = true
-    language = "fr"
-
-
-    iconUrl = "https://cdn.statically.io/gh/Anime-Sama/IMG/img/autres/logo.png"
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
+    }
+    dependencies {
+        // On passe aux versions modernes qui fonctionnent sur GitHub en 2025
+        classpath("com.android.tools.build:gradle:8.1.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+        classpath("com.github.recloudstream:gradle:master-SNAPSHOT")
+    }
 }
 
-android {
-    buildFeatures {
-        viewBinding = true
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
     }
+}
+
+tasks.register<Delete>("clean") {
+    delete(rootProject.layout.buildDirectory)
 }

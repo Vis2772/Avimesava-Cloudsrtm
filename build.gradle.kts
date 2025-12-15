@@ -2,12 +2,13 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven("https://jitpack.io") // Ajoute cette ligne
+        maven("https://jitpack.io")
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.0.4")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
-        classpath("com.github.recloudstream:gradle:master-SNAPSHOT") // Ajoute cette ligne
+        // On passe aux versions modernes qui fonctionnent sur GitHub en 2025
+        classpath("com.android.tools.build:gradle:8.1.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0")
+        classpath("com.github.recloudstream:gradle:master-SNAPSHOT")
     }
 }
 
@@ -17,4 +18,8 @@ allprojects {
         mavenCentral()
         maven("https://jitpack.io")
     }
+}
+
+task<Delete>("clean") {
+    delete(rootProject.buildDir)
 }

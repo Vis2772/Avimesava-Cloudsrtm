@@ -19,7 +19,7 @@ jobs:
 
       - name: Build with Gradle
         # Plus de hacks, on utilise la commande standard
-        run: gradle :AnimeSama:make
+        run: gradle :AnimeSama:make --warning-mode all
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4

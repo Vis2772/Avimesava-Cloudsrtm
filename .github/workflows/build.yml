@@ -25,7 +25,7 @@ jobs:
         run: gradle :AnimeSama:make
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Cloudstream-Plugin
           path: "**/*.cs3"
